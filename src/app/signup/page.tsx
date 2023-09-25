@@ -7,12 +7,12 @@ import axios from "axios";
 
 export default function SignupPage() {
   const router = useRouter();
-  const [user, sertUser] = React.useState({
+  const [user, setUser] = React.useState({
     email: "",
     password: "",
     username: "",
   });
-  const [buttonDisabled, setBurronDisabled] = React.useState(false);
+  const [buttonDisabled, setButtonDisabled] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
   const onSignup = async () => {
@@ -35,9 +35,9 @@ export default function SignupPage() {
       user.password.length > 0 &&
       user.username.length > 0
     ) {
-      setBurronDisabled(false);
+      setButtonDisabled(false);
     } else {
-      setBurronDisabled(true);
+      setButtonDisabled(true);
     }
   }, [user]);
 
@@ -50,7 +50,7 @@ export default function SignupPage() {
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
         type="text"
         value={user.username}
-        onChange={(e) => sertUser({ ...user, username: e.target.value })}
+        onChange={(e) => setUser({ ...user, username: e.target.value })}
         placeholder="username"
       />
       <label htmlFor="email">email</label>
@@ -58,7 +58,7 @@ export default function SignupPage() {
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
         type="email"
         value={user.email}
-        onChange={(e) => sertUser({ ...user, email: e.target.value })}
+        onChange={(e) => setUser({ ...user, email: e.target.value })}
         placeholder="email"
       />
       <label htmlFor="password">password</label>
@@ -66,7 +66,7 @@ export default function SignupPage() {
         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
         type="password"
         value={user.password}
-        onChange={(e) => sertUser({ ...user, password: e.target.value })}
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder="password"
       />
       <button
