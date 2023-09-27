@@ -36,3 +36,5 @@ next-env.d.ts
 
 # Ignore .env files and folders
 .env*
+
+**/.env
